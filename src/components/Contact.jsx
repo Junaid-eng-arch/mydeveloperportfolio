@@ -334,7 +334,7 @@ export default function Contact() {
                 <div className="contact-icon-wrap">💼</div>
                 <div>
                   <div className="contact-info-label">LinkedIn</div>
-                  <div className="contact-info-value">linkedin.com/in/vishnu-vijayan-vs</div>
+                  <div className="contact-info-value">www.linkedin.com/in/junaid-p-7a8555310</div>
                 </div>
               </a>
 
