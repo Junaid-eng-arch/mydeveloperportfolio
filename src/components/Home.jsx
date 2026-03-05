@@ -292,9 +292,9 @@ export default function HeroSection() {
         <a className="logo" href="#">Vishnu<span>VS</span></a>
         <ul className="nav-links">
           <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Experience</a></li>
-          <li><a href="#">Skills</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/experince">Experience</a></li>
+          <li><a href="/skills">Skills</a></li>
           <li><a href="#">Accomplishments</a></li>
           <li><a href="#">Gallery</a></li>
           <li>
