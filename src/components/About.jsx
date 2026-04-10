@@ -88,7 +88,7 @@ const About = () => {
   };
 
   return (
-    <section style={styles.section}>
+    <section style={styles.section} id="about">
       <div style={styles.container}>
         
         {/* LEFT IMAGE */}

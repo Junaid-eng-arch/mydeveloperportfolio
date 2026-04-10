@@ -10,7 +10,14 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = ["HOME", "GALLERY", "ABOUT", "PROJECTS"];
+  const links = [
+    { label: "HOME", href: "#home" },
+    { label: "ABOUT", href: "#about" },
+    { label: "EXPERIENCE", href: "#experience" },
+    { label: "SKILLS", href: "#skills" },
+    { label: "PROJECTS", href: "#projects" },
+    { label: "CONTACT", href: "#contact" },
+  ];
 
   return (
     <>
@@ -32,13 +39,13 @@ const Navbar = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 0 48px;
-          height: 68px;
+          padding: 0 64px;
+          height: 88px;
           background: rgba(255, 255, 255, 0.82);
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
-          border-bottom: 1px solid rgba(37, 99, 235, 0.10);
-          transition: background 0.35s ease;
+          backdrop-filter: blur(18px);
+          -webkit-backdrop-filter: blur(18px);
+          border-bottom: 1px solid rgba(37, 99, 235, 0.12);
+          transition: background 0.35s ease, height 0.2s ease;
         }
 
         .navbar-root.scrolled .navbar-inner {
@@ -48,14 +55,14 @@ const Navbar = () => {
         /* ── Logo ── */
         .navbar-logo {
           font-family: 'Orbitron', sans-serif;
-          font-size: 1.15rem;
+          font-size: 1.25rem;
           font-weight: 700;
           color: #0f172a;
           letter-spacing: 1px;
           text-decoration: none;
           display: flex;
           align-items: center;
-          gap: 2px;
+          gap: 4px;
         }
 
         .navbar-logo span {
@@ -82,7 +89,7 @@ const Navbar = () => {
         .navbar-links {
           display: flex;
           align-items: center;
-          gap: 6px;
+          gap: 8px;
           list-style: none;
           margin: 0;
           padding: 0;
@@ -91,13 +98,13 @@ const Navbar = () => {
         .navbar-link {
           position: relative;
           font-family: 'Rajdhani', sans-serif;
-          font-size: 0.82rem;
-          font-weight: 600;
-          letter-spacing: 1.5px;
+          font-size: 1rem;
+          font-weight: 800;
+          letter-spacing: 1.7px;
           text-decoration: none;
-          color: #64748b;
-          padding: 6px 14px;
-          border-radius: 6px;
+          color: #334155;
+          padding: 12px 18px;
+          border-radius: 10px;
           transition: color 0.2s ease, background 0.2s ease;
         }
 
@@ -126,14 +133,14 @@ const Navbar = () => {
         /* ── Contact Button ── */
         .navbar-btn {
           font-family: 'Rajdhani', sans-serif;
-          font-size: 0.82rem;
-          font-weight: 700;
-          letter-spacing: 1.5px;
-          padding: 9px 22px;
-          border: 1.5px solid #2563eb;
+          font-size: 0.9rem;
+          font-weight: 800;
+          letter-spacing: 1.6px;
+          padding: 12px 26px;
+          border: 1.8px solid #2563eb;
           background: transparent;
           color: #2563eb;
-          border-radius: 8px;
+          border-radius: 10px;
           cursor: pointer;
           transition: all 0.25s ease;
           position: relative;
@@ -168,6 +175,7 @@ const Navbar = () => {
         @media (max-width: 640px) {
           .navbar-inner {
             padding: 0 20px;
+            height: 78px;
           }
           .navbar-links {
             display: none;
@@ -187,14 +195,14 @@ const Navbar = () => {
           {/* Links */}
           <nav>
             <ul className="navbar-links">
-              {links.map((link) => (
-                <li key={link}>
+              {links.map(({ label, href }) => (
+                <li key={label}>
                   <a
-                    href="#"
-                    className={`navbar-link ${activeLink === link ? "active" : ""}`}
-                    onClick={(e) => { e.preventDefault(); setActiveLink(link); }}
+                    href={href}
+                    className={`navbar-link ${activeLink === label ? "active" : ""}`}
+                    onClick={() => setActiveLink(label)}
                   >
-                    {link}
+                    {label}
                   </a>
                 </li>
               ))}
@@ -202,9 +210,9 @@ const Navbar = () => {
           </nav>
 
           {/* Contact Button */}
-          <button className="navbar-btn">
+          <a className="navbar-btn" href="#contact">
             <span>CONTACT</span>
-          </button>
+          </a>
 
         </div>
       </header>

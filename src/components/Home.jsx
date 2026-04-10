@@ -312,7 +312,7 @@ export default function HeroSection() {
       </nav>
 
       {/* Hero Section */}
-      <section className="hero">
+      <section className="hero" id="home">
         {/* Grid overlay */}
         <div className="hero-grid" />
 
