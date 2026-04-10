@@ -338,7 +338,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              <a href="tel:+918075840544" className="contact-info-card">
+              <a href="tel:+919656586984" className="contact-info-card">
                 <div className="contact-icon-wrap">📞</div>
                 <div>
                   <div className="contact-info-label">Phone</div>
