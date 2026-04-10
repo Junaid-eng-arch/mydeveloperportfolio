@@ -153,7 +153,7 @@ function Projects() {
         .projects-grid {
           display: grid;
           gap: 1.6rem;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         }
 
         .project-card {
@@ -253,9 +253,39 @@ function Projects() {
             padding: 4rem 1rem;
           }
 
+          .projects-grid {
+            grid-template-columns: 1fr;
+            gap: 1.1rem;
+          }
+
+          .project-card {
+            padding: 1.2rem 1.15rem;
+          }
+
           .project-top {
             flex-direction: column;
             align-items: flex-start;
+          }
+
+          .project-title {
+            font-size: 1.05rem;
+          }
+
+          .project-subtitle {
+            white-space: normal;
+            font-size: 0.9rem;
+          }
+
+          .project-summary {
+            font-size: 0.95rem;
+          }
+
+          .project-cta {
+            width: 100%;
+          }
+
+          .project-tags {
+            gap: 0.45rem;
           }
         }
       `}</style>
@@ -285,7 +315,7 @@ function Projects() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Visit live ↗
+                    Visit live ->
                   </a>
                 )}
                 <div className="project-tags">
