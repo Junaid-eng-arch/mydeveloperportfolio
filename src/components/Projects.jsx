@@ -18,6 +18,21 @@ const projects = [
     accent: "#00d4e8",
     highlight: true,
   },
+   {
+    title: "Paramedical Institute Website",
+    subtitle: "Information portal",
+    url: "https://hello-world-buddy-524.vercel.app",
+    summary:
+      "Showcases the institute, courses, facilities, and admission details so prospective students can explore easily.",
+    tags: [
+      "Course & syllabus pages",
+      "About / vision / mission",
+      "Admissions & eligibility",
+      "Faculty highlights",
+      "Gallery & labs overview",
+      "Contact & enquiry form",
+    ],
+  },
   {
     title: "Travel Buddy",
     subtitle: "Trip planning & bookings",
@@ -33,21 +48,7 @@ const projects = [
       "Responsive layouts",
     ],
   },
-  {
-    title: "Paramedical Institute Website",
-    subtitle: "Information portal",
-    url: "https://hello-world-buddy-524.vercel.app",
-    summary:
-      "Showcases the institute, courses, facilities, and admission details so prospective students can explore easily.",
-    tags: [
-      "Course & syllabus pages",
-      "About / vision / mission",
-      "Admissions & eligibility",
-      "Faculty highlights",
-      "Gallery & labs overview",
-      "Contact & enquiry form",
-    ],
-  },
+ 
   {
     title: "Learning Hub (LLM)",
     subtitle: "AI study companion",
