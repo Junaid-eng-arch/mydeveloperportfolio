@@ -27,7 +27,7 @@ export default function Contact() {
           color: #e8f4f8;
         }
 
-        /* ── Header ── */
+        /* Header */
         .contact-header {
           text-align: center;
           margin-bottom: 1rem;
@@ -60,7 +60,7 @@ export default function Contact() {
           margin-bottom: 3rem;
         }
 
-        /* ── Layout ── */
+        /* Layout */
         .contact-container {
           max-width: 1100px;
           margin: 0 auto;
@@ -70,7 +70,7 @@ export default function Contact() {
           align-items: start;
         }
 
-        /* ── Left: Form Card ── */
+        /* Left: Form Card */
         .contact-form-card {
           background: rgba(255, 255, 255, 0.03);
           border: 1px solid rgba(255, 255, 255, 0.08);
@@ -167,7 +167,7 @@ export default function Contact() {
           font-weight: 600;
         }
 
-        /* ── Right: Connect Cards ── */
+        /* Right: Connect Cards */
         .contact-right h3 {
           font-size: 1.5rem;
           font-weight: 700;
@@ -223,7 +223,7 @@ export default function Contact() {
           font-weight: 600;
         }
 
-        /* ── Collaboration Box ── */
+        /* Collaboration Box */
         .collab-box {
           background: rgba(255, 255, 255, 0.03);
           border: 1px solid rgba(255, 255, 255, 0.08);
@@ -245,10 +245,79 @@ export default function Contact() {
           line-height: 1.65;
         }
 
-        /* ── Responsive ── */
+        /* Responsive */
+        @media (max-width: 900px) {
+          .contact-container {
+            gap: 1.8rem;
+          }
+        }
+
         @media (max-width: 768px) {
           .contact-container {
             grid-template-columns: 1fr;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .contact-section {
+            padding: 3.5rem 1.2rem;
+          }
+
+          .contact-header h2 {
+            font-size: 1.9rem;
+          }
+
+          .contact-subtitle {
+            font-size: 0.98rem;
+            margin-bottom: 2rem;
+          }
+
+          .contact-container {
+            gap: 1.4rem;
+          }
+
+          .contact-form-card {
+            padding: 1.4rem;
+          }
+
+          .contact-form-title {
+            font-size: 1.25rem;
+          }
+
+          .form-label {
+            font-size: 0.9rem;
+          }
+
+          .send-btn {
+            width: 100%;
+            justify-content: center;
+            font-size: 0.95rem;
+            padding: 0.85rem 1rem;
+          }
+
+          .contact-info-card {
+            align-items: flex-start;
+            gap: 0.85rem;
+            padding: 1rem 1.05rem;
+          }
+
+          .contact-icon-wrap {
+            width: 42px;
+            height: 42px;
+            font-size: 1.05rem;
+          }
+
+          .contact-info-value {
+            font-size: 0.98rem;
+            word-break: break-word;
+          }
+
+          .collab-box {
+            padding: 1.15rem 1.1rem;
+          }
+
+          .collab-box p {
+            font-size: 0.94rem;
           }
         }
       `}</style>
@@ -313,7 +382,7 @@ export default function Contact() {
                 Send Message
               </button>
 
-              {sent && <p className="success-msg">✓ Message sent successfully!</p>}
+              {sent && <p className="success-msg">? Message sent successfully!</p>}
             </form>
           </div>
 
@@ -323,7 +392,7 @@ export default function Contact() {
 
             <div className="contact-info-cards">
               <a href="mailto:pj399933@gmail.com" className="contact-info-card">
-                <div className="contact-icon-wrap">✉️</div>
+                <div className="contact-icon-wrap">??</div>
                 <div>
                   <div className="contact-info-label">Email</div>
                   <div className="contact-info-value">pj399933@gmail.com</div>
@@ -331,7 +400,7 @@ export default function Contact() {
               </a>
 
               <a href="https://linkedin.com/in/vishnu-vijayan-vs" target="_blank" rel="noreferrer" className="contact-info-card">
-                <div className="contact-icon-wrap">💼</div>
+                <div className="contact-icon-wrap">??</div>
                 <div>
                   <div className="contact-info-label">LinkedIn</div>
                   <div className="contact-info-value">www.linkedin.com/in/junaid-p-7a8555310</div>
@@ -339,7 +408,7 @@ export default function Contact() {
               </a>
 
               <a href="tel:+919656586984" className="contact-info-card">
-                <div className="contact-icon-wrap">📞</div>
+                <div className="contact-icon-wrap">??</div>
                 <div>
                   <div className="contact-info-label">Phone</div>
                   <div className="contact-info-value">+91 9656586984</div>
