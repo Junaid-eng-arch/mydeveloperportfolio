@@ -322,7 +322,7 @@ export default function Contact() {
             <h3>Connect With Me</h3>
 
             <div className="contact-info-cards">
-              <a href="mailto:vishnuxrobot@gmail.com" className="contact-info-card">
+              <a href="mailto:pj399933@gmail.com" className="contact-info-card">
                 <div className="contact-icon-wrap">✉️</div>
                 <div>
                   <div className="contact-info-label">Email</div>
