@@ -20,6 +20,7 @@ export default function Skills() {
         "Django", "Django REST Framework",
         "Python", "PostgreSQL",
         "MySQL", "Redis",
+        "Node.js", "Next.js",
         "JWT Authentication",
       ],
     },

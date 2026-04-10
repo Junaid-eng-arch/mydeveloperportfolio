@@ -19,6 +19,21 @@ const projects = [
     highlight: true,
   },
   {
+    title: "Travel Buddy",
+    subtitle: "Trip planning & bookings",
+    url: "https://myfrontendtravelwebsite.vercel.app",
+    summary:
+      "Curated travel packages, hotel search, and booking flows with clear pricing and destination highlights.",
+    tags: [
+      "Package listings",
+      "Hotel & room search",
+      "Booking & payments",
+      "Itinerary highlights",
+      "Location filters",
+      "Responsive layouts",
+    ],
+  },
+  {
     title: "Paramedical Institute Website",
     subtitle: "Information portal",
     url: "https://hello-world-buddy-524.vercel.app",
@@ -62,16 +77,16 @@ const projects = [
     ],
   },
   {
-    title: "Restaurant Management System",
+    title: "travel buddy(mytravelwebsite-two.vercel.app)",
     subtitle: "Operations & billing",
     summary:
-      "Django-powered system for order taking, kitchen tracking, and streamlined billing at the counter.",
+      "django app for travel agency to manage bookings, generate GST-inclusive bills, and track daily sales.",
     tags: [
-      "Table & parcel orders",
+      "Travel booking management",
       "KOT workflow",
-      "GST-inclusive billing",
-      "Menu management",
-      "Daily sales reports",
+      "expereince nature",
+      "travekl package management",
+      "season offers",
       "Role-based access",
     ],
   },
