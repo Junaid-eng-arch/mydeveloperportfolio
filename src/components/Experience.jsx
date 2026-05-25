@@ -4,7 +4,7 @@ const experiences = [
   {
     title: "Freelance website developer",
     company: "Ablefolks solutions",
-    period: "2025–Present",
+    period: "2025-Present",
     points: [
       "Designed and developed responsive websites for small businesses using React and Django",
       "Implemented user authentication and database management for client projects",
@@ -16,35 +16,14 @@ const experiences = [
   {
     title: "Junior full stack developer",
     company: "Daxis solutions",
-    period: "2025–2026",
+    period: "2025-2026",
     points: [
-      "A travel website provides users with a seamless platform to explore destinations, plan trips, and make bookings all in one place. It allows travelers to discover popular locations through curated guides, detailed itineraries, and rich visuals. Users can search and book flights, hotels, and holiday packages while accessing real-time pricing and availability. The platform often includes personalized recommendations based on user preferences, along with reviews and ratings to help make informed decisions. Integrated tools like Google Maps enhance navigation and trip planning, while secure payment systems ensure safe transactions. Additionally, features such as user accounts, saved favorites, multilingual support, and customer assistance make the overall travel experience convenient, efficient, and enjoyable.",
+      "Built and supported a travel website that lets users explore destinations, compare options, and make bookings in one place.",
+      "Worked on curated travel guides, itineraries, hotel search, and secure booking flows.",
+      "Integrated Google Maps, search filters, and user-friendly dashboards for trip planning.",
+      "Helped improve page structure, responsiveness, and consistency across the product.",
     ],
   },
-  // {
-  //   title: "Security Analyst & Pentest Lead",
-  //   company: "Zilicon Technologies",
-  //   period: "2020–2021",
-  //   points: [
-  //     "Led penetration testing engagements across web, mobile, and network environments",
-  //     "Conducted vulnerability assessments and risk analysis for multiple enterprise clients",
-  //     "Developed and maintained security testing frameworks and internal toolsets",
-  //     "Coordinated with development teams to integrate secure coding practices",
-  //     "Produced detailed security assessment reports and presented findings to stakeholders",
-  //   ],
-  // },
-  // {
-  //   title: "Penetration Tester",
-  //   company: "Zilicon Technologies",
-  //   period: "2019–2020",
-  //   points: [
-  //     "Performed manual and automated penetration tests on web applications and infrastructure",
-  //     "Identified and documented security vulnerabilities using industry-standard methodologies",
-  //     "Assisted in the development of security policies and procedures",
-  //     "Supported incident response activities and forensic investigations",
-  //     "Contributed to threat intelligence gathering and analysis",
-  //   ],
-  // },
 ];
 
 export default function Experience() {
@@ -57,16 +36,15 @@ export default function Experience() {
 
         .exp-section {
           background: #071428;
-          padding: 5rem 2rem;
+          padding: 5rem 1rem;
           font-family: 'Rajdhani', sans-serif;
           color: #e8f4f8;
-          min-height: 100vh;
+          min-height: auto;
         }
 
-        /* ── Section Header ── */
         .exp-header {
           text-align: center;
-          margin-bottom: 3.5rem;
+          margin-bottom: 3rem;
         }
 
         .exp-header h2 {
@@ -89,30 +67,30 @@ export default function Experience() {
           border-radius: 2px;
         }
 
-        /* ── Layout ── */
         .exp-container {
           max-width: 1100px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: 340px 1fr;
+          grid-template-columns: minmax(240px, 340px) minmax(0, 1fr);
           gap: 2rem;
           align-items: start;
+          min-width: 0;
         }
 
-        /* ── Left Tab List ── */
         .exp-tabs {
           display: flex;
           flex-direction: column;
-          gap: 0.2rem;
+          gap: 0.35rem;
         }
 
         .exp-tab {
-          padding: 1rem 1.2rem;
-          border-radius: 6px;
+          padding: 1rem 1.1rem;
+          border-radius: 10px;
           cursor: pointer;
           transition: background 0.2s, border-left 0.2s;
           border-left: 3px solid transparent;
-          background: transparent;
+          background: rgba(255, 255, 255, 0.02);
+          min-width: 0;
         }
 
         .exp-tab:hover {
@@ -128,7 +106,7 @@ export default function Experience() {
           font-size: 1rem;
           font-weight: 700;
           color: #e8f4f8;
-          margin-bottom: 0.2rem;
+          margin-bottom: 0.25rem;
         }
 
         .exp-tab.active .exp-tab-title {
@@ -136,21 +114,22 @@ export default function Experience() {
         }
 
         .exp-tab-meta {
-          font-size: 0.88rem;
+          font-size: 0.9rem;
           font-weight: 400;
           color: #8faabf;
+          overflow-wrap: anywhere;
         }
 
-        /* ── Right Detail Panel ── */
         .exp-detail {
           background: rgba(255, 255, 255, 0.03);
           border: 1px solid rgba(0, 212, 232, 0.1);
-          border-radius: 8px;
+          border-radius: 12px;
           padding: 2rem 2.2rem;
+          min-width: 0;
         }
 
         .exp-detail-title {
-          font-size: 1.5rem;
+          font-size: clamp(1.25rem, 2vw, 1.5rem);
           font-weight: 700;
           color: #e8f4f8;
           margin-bottom: 0.4rem;
@@ -160,7 +139,7 @@ export default function Experience() {
           font-size: 1rem;
           font-weight: 600;
           color: #00d4e8;
-          margin-bottom: 1.8rem;
+          margin-bottom: 1.6rem;
         }
 
         .exp-points {
@@ -180,6 +159,7 @@ export default function Experience() {
           color: #c5d8e8;
           line-height: 1.6;
           font-weight: 400;
+          overflow-wrap: anywhere;
         }
 
         .exp-points li::before {
@@ -190,38 +170,59 @@ export default function Experience() {
           flex-shrink: 0;
         }
 
-        /* ── Responsive ── */
         @media (max-width: 768px) {
+          .exp-section {
+            padding: 4rem 1rem;
+          }
+
           .exp-container {
             grid-template-columns: 1fr;
           }
+
           .exp-tabs {
             flex-direction: row;
             overflow-x: auto;
             gap: 0.5rem;
             padding-bottom: 0.5rem;
+            scrollbar-width: none;
           }
+
+          .exp-tabs::-webkit-scrollbar {
+            display: none;
+          }
+
           .exp-tab {
-            min-width: 200px;
+            min-width: 180px;
             border-left: none;
             border-bottom: 3px solid transparent;
           }
+
           .exp-tab.active {
             border-left: none;
             border-bottom: 3px solid #00d4e8;
+          }
+
+          .exp-detail {
+            padding: 1.4rem 1.1rem;
+          }
+
+          .exp-detail-title {
+            font-size: 1.2rem;
+          }
+
+          .exp-points li {
+            font-size: 0.96rem;
           }
         }
       `}</style>
 
       <section className="exp-section" id="experience">
-        {/* Header */}
         <div className="exp-header">
           <h2>Professional <span>Experience</span></h2>
           <div className="exp-header-underline" />
         </div>
 
         <div className="exp-container">
-          {/* Left Tabs */}
           <div className="exp-tabs">
             {experiences.map((exp, i) => (
               <div
@@ -230,12 +231,13 @@ export default function Experience() {
                 onClick={() => setActive(i)}
               >
                 <div className="exp-tab-title">{exp.title}</div>
-                <div className="exp-tab-meta">{exp.company} • {exp.period}</div>
+                <div className="exp-tab-meta">
+                  {exp.company} • {exp.period}
+                </div>
               </div>
             ))}
           </div>
 
-          {/* Right Detail */}
           <div className="exp-detail">
             <h3 className="exp-detail-title">{experiences[active].title}</h3>
             <p className="exp-detail-meta">

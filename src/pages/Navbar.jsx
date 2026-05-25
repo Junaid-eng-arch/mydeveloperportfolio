@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("HOME");
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -19,6 +20,11 @@ const Navbar = () => {
     { label: "CONTACT", href: "#contact" },
   ];
 
+  const handleLinkClick = (label) => {
+    setActiveLink(label);
+    setMobileOpen(false);
+  };
+
   return (
     <>
       <style>{`
@@ -28,7 +34,8 @@ const Navbar = () => {
           position: sticky;
           top: 0;
           z-index: 1000;
-          transition: all 0.35s ease;
+          width: 100%;
+          transition: box-shadow 0.35s ease, background 0.35s ease;
         }
 
         .navbar-root.scrolled {
@@ -39,20 +46,20 @@ const Navbar = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 0 64px;
-          height: 88px;
+          gap: 1rem;
+          padding: 0 clamp(1rem, 4vw, 4rem);
+          min-height: 88px;
           background: rgba(255, 255, 255, 0.82);
           backdrop-filter: blur(18px);
           -webkit-backdrop-filter: blur(18px);
           border-bottom: 1px solid rgba(37, 99, 235, 0.12);
-          transition: background 0.35s ease, height 0.2s ease;
+          position: relative;
         }
 
         .navbar-root.scrolled .navbar-inner {
           background: rgba(255, 255, 255, 0.95);
         }
 
-        /* ── Logo ── */
         .navbar-logo {
           font-family: 'Orbitron', sans-serif;
           font-size: 1.25rem;
@@ -60,9 +67,10 @@ const Navbar = () => {
           color: #0f172a;
           letter-spacing: 1px;
           text-decoration: none;
-          display: flex;
+          display: inline-flex;
           align-items: center;
           gap: 4px;
+          white-space: nowrap;
         }
 
         .navbar-logo span {
@@ -85,7 +93,6 @@ const Navbar = () => {
           50% { opacity: 0.5; transform: scale(0.7); }
         }
 
-        /* ── Nav Links ── */
         .navbar-links {
           display: flex;
           align-items: center;
@@ -93,6 +100,8 @@ const Navbar = () => {
           list-style: none;
           margin: 0;
           padding: 0;
+          flex-wrap: wrap;
+          justify-content: center;
         }
 
         .navbar-link {
@@ -130,7 +139,6 @@ const Navbar = () => {
           border-radius: 2px;
         }
 
-        /* ── Contact Button ── */
         .navbar-btn {
           font-family: 'Rajdhani', sans-serif;
           font-size: 0.9rem;
@@ -145,6 +153,9 @@ const Navbar = () => {
           transition: all 0.25s ease;
           position: relative;
           overflow: hidden;
+          text-decoration: none;
+          white-space: nowrap;
+          flex-shrink: 0;
         }
 
         .navbar-btn::before {
@@ -171,36 +182,122 @@ const Navbar = () => {
           z-index: 1;
         }
 
-        /* ── Responsive ── */
-        @media (max-width: 640px) {
-          .navbar-inner {
-            padding: 0 20px;
-            height: 78px;
-          }
-          .navbar-links {
+        .navbar-toggle {
+          display: none;
+          align-items: center;
+          justify-content: center;
+          width: 44px;
+          height: 44px;
+          border: 1px solid rgba(37, 99, 235, 0.2);
+          border-radius: 12px;
+          background: rgba(37, 99, 235, 0.05);
+          color: #2563eb;
+          cursor: pointer;
+          flex-shrink: 0;
+        }
+
+        .navbar-toggle svg {
+          width: 22px;
+          height: 22px;
+        }
+
+        .navbar-mobile-panel {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          padding: 1rem;
+          background: rgba(255, 255, 255, 0.96);
+          backdrop-filter: blur(18px);
+          -webkit-backdrop-filter: blur(18px);
+          border-bottom: 1px solid rgba(37, 99, 235, 0.12);
+          box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+        }
+
+        .navbar-mobile-panel.open {
+          display: block;
+        }
+
+        .navbar-mobile-links {
+          display: grid;
+          gap: 0.5rem;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+
+        .navbar-mobile-link {
+          display: block;
+          padding: 0.9rem 1rem;
+          border-radius: 12px;
+          text-decoration: none;
+          font-family: 'Rajdhani', sans-serif;
+          font-weight: 800;
+          letter-spacing: 1.4px;
+          color: #334155;
+          background: rgba(15, 23, 42, 0.03);
+        }
+
+        .navbar-mobile-link.active {
+          color: #2563eb;
+          background: rgba(37, 99, 235, 0.08);
+        }
+
+        .navbar-mobile-cta {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          margin-top: 0.85rem;
+          padding: 0.95rem 1rem;
+          border-radius: 12px;
+          text-decoration: none;
+          font-family: 'Rajdhani', sans-serif;
+          font-weight: 800;
+          letter-spacing: 1.4px;
+          color: #ffffff;
+          background: #2563eb;
+          border: 1px solid #2563eb;
+        }
+
+        @media (max-width: 960px) {
+          .navbar-links,
+          .navbar-btn {
             display: none;
+          }
+
+          .navbar-toggle {
+            display: inline-flex;
+          }
+
+          .navbar-inner {
+            min-height: 76px;
+          }
+        }
+
+        @media (min-width: 961px) {
+          .navbar-mobile-panel {
+            display: none !important;
           }
         }
       `}</style>
 
       <header className={`navbar-root ${scrolled ? "scrolled" : ""}`}>
         <div className="navbar-inner">
-
-          {/* Logo */}
-          <a href="#" className="navbar-logo">
+          <a href="#home" className="navbar-logo" onClick={() => handleLinkClick("HOME")}>
             Alex <span>Design</span>
             <span className="navbar-logo-dot" />
           </a>
 
-          {/* Links */}
-          <nav>
+          <nav aria-label="Primary">
             <ul className="navbar-links">
               {links.map(({ label, href }) => (
                 <li key={label}>
                   <a
                     href={href}
                     className={`navbar-link ${activeLink === label ? "active" : ""}`}
-                    onClick={() => setActiveLink(label)}
+                    onClick={() => handleLinkClick(label)}
                   >
                     {label}
                   </a>
@@ -209,11 +306,42 @@ const Navbar = () => {
             </ul>
           </nav>
 
-          {/* Contact Button */}
-          <a className="navbar-btn" href="#contact">
+          <a className="navbar-btn" href="#contact" onClick={() => handleLinkClick("CONTACT")}>
             <span>CONTACT</span>
           </a>
 
+          <button
+            type="button"
+            className="navbar-toggle"
+            aria-label="Open navigation menu"
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((open) => !open)}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <path d="M4 6h16" />
+              <path d="M4 12h16" />
+              <path d="M4 18h16" />
+            </svg>
+          </button>
+
+          <div className={`navbar-mobile-panel ${mobileOpen ? "open" : ""}`}>
+            <ul className="navbar-mobile-links">
+              {links.map(({ label, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className={`navbar-mobile-link ${activeLink === label ? "active" : ""}`}
+                    onClick={() => handleLinkClick(label)}
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a className="navbar-mobile-cta" href="#contact" onClick={() => handleLinkClick("CONTACT")}>
+              CONTACT
+            </a>
+          </div>
         </div>
       </header>
     </>

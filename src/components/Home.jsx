@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function HeroSection() {
+export default function Home() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -13,113 +13,21 @@ export default function HeroSection() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@400;500;600&display=swap');
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-          --cyan: #00d4e8;
-          --cyan-dim: #00b8c9;
-          --navy-deep: #050d1a;
-          --navy-mid: #071428;
-          --navy-light: #0a1f3d;
-          --text-white: #e8f4f8;
-          --text-muted: #8faabf;
-        }
-
-        body {
-          background: var(--navy-deep);
-          font-family: 'Rajdhani', sans-serif;
-          color: var(--text-white);
-          overflow-x: hidden;
-        }
-
-        /* ─── NAVBAR ─────────────────────────────────────── */
-        .navbar {
-          position: fixed;
-          top: 0; left: 0; right: 0;
-          z-index: 100;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 0 3rem;
-          height: 64px;
-          background: rgba(5, 13, 26, 0.9);
-          backdrop-filter: blur(12px);
-          border-bottom: 1px solid rgba(0, 212, 232, 0.08);
-        }
-
-        .logo {
-          font-family: 'Orbitron', sans-serif;
-          font-size: 1.3rem;
-          font-weight: 900;
-          letter-spacing: 1px;
-          color: var(--text-white);
-          text-decoration: none;
-        }
-        .logo span { color: var(--cyan); }
-
-        .nav-links {
-          display: flex;
-          align-items: center;
-          gap: 2rem;
-          list-style: none;
-        }
-
-        .nav-links a {
-          color: var(--text-white);
-          text-decoration: none;
-          font-size: 0.95rem;
-          font-weight: 500;
-          letter-spacing: 0.5px;
-          transition: color 0.2s;
-          cursor: pointer;
-        }
-        .nav-links a:hover { color: var(--cyan); }
-
-        .nav-gallery-btn {
-          display: flex;
-          align-items: center;
-          gap: 0.4rem;
-          color: var(--text-white) !important;
-          font-size: 0.9rem;
-        }
-
-        .resume-btn {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          background: var(--cyan);
-          color: var(--navy-deep) !important;
-          font-family: 'Rajdhani', sans-serif;
-          font-weight: 700;
-          font-size: 0.9rem;
-          letter-spacing: 1px;
-          padding: 0.5rem 1.2rem;
-          border-radius: 6px;
-          border: none;
-          cursor: pointer;
-          transition: background 0.2s, transform 0.15s;
-          text-decoration: none;
-        }
-        .resume-btn:hover {
-          background: var(--cyan-dim);
-          transform: translateY(-1px);
-          color: var(--navy-deep) !important;
-        }
-
-        /* ─── HERO ───────────────────────────────────────── */
         .hero {
           position: relative;
-          min-height: 100vh;
+          min-height: calc(100vh - 88px);
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           text-align: center;
           overflow: hidden;
-          padding: 0 2rem;
+          padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 4vw, 2rem) 5rem;
+          background: #050d1a;
+          color: #e8f4f8;
+          font-family: 'Rajdhani', sans-serif;
         }
 
-        /* Radial background glow */
         .hero::before {
           content: '';
           position: absolute;
@@ -131,7 +39,6 @@ export default function HeroSection() {
           pointer-events: none;
         }
 
-        /* Animated grid pattern */
         .hero-grid {
           position: absolute;
           inset: 0;
@@ -143,7 +50,6 @@ export default function HeroSection() {
           mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 30%, transparent 100%);
         }
 
-        /* Floating particles */
         .particles {
           position: absolute;
           inset: 0;
@@ -155,7 +61,7 @@ export default function HeroSection() {
           position: absolute;
           width: 2px;
           height: 2px;
-          background: var(--cyan);
+          background: #00d4e8;
           border-radius: 50%;
           opacity: 0;
           animation: float-up linear infinite;
@@ -172,37 +78,41 @@ export default function HeroSection() {
           position: relative;
           z-index: 2;
           max-width: 900px;
+          width: 100%;
         }
 
-        /* Staggered entrance animations */
         .fade-in {
           opacity: 0;
           transform: translateY(24px);
           transition: opacity 0.8s ease, transform 0.8s ease;
         }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .fade-in.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
         .delay-1 { transition-delay: 0.1s; }
         .delay-2 { transition-delay: 0.3s; }
         .delay-3 { transition-delay: 0.5s; }
         .delay-4 { transition-delay: 0.7s; }
-        .delay-5 { transition-delay: 0.9s; }
 
         .hero-name {
           font-family: 'Orbitron', sans-serif;
-          font-size: clamp(2.8rem, 7vw, 5.5rem);
+          font-size: clamp(2.6rem, 7vw, 5.5rem);
           font-weight: 900;
           letter-spacing: -1px;
-          color: var(--text-white);
+          color: #e8f4f8;
           line-height: 1.05;
           text-shadow: 0 0 60px rgba(0, 212, 232, 0.15);
-          margin-bottom: 1rem;
+          margin: 0 0 1rem;
         }
 
         .hero-roles {
           font-family: 'Rajdhani', sans-serif;
           font-size: clamp(1rem, 2.2vw, 1.35rem);
           font-weight: 600;
-          color: var(--cyan);
+          color: #00d4e8;
           letter-spacing: 1.5px;
           text-transform: uppercase;
           margin-bottom: 1.5rem;
@@ -215,35 +125,41 @@ export default function HeroSection() {
 
         .hero-bio {
           font-size: clamp(1rem, 1.8vw, 1.15rem);
-          color: var(--text-muted);
+          color: #8faabf;
           font-weight: 400;
           line-height: 1.7;
-          max-width: 580px;
+          max-width: 640px;
           margin: 0 auto 3rem;
         }
 
         .hero-actions {
           display: flex;
-          gap: 1.2rem;
+          gap: 1rem;
           justify-content: center;
           flex-wrap: wrap;
         }
 
+        .btn-primary,
+        .btn-secondary {
+          min-height: 48px;
+        }
+
         .btn-primary {
-          background: var(--cyan);
-          color: var(--navy-deep);
+          background: #00d4e8;
+          color: #050d1a;
           font-family: 'Rajdhani', sans-serif;
           font-weight: 700;
           font-size: 1rem;
           letter-spacing: 1.5px;
           text-transform: uppercase;
-          padding: 0.9rem 2.4rem;
+          padding: 0.9rem 2.1rem;
           border: none;
-          border-radius: 6px;
+          border-radius: 10px;
           cursor: pointer;
           transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
           box-shadow: 0 0 20px rgba(0, 212, 232, 0.25);
         }
+
         .btn-primary:hover {
           background: #00e8ff;
           transform: translateY(-2px);
@@ -252,28 +168,28 @@ export default function HeroSection() {
 
         .btn-secondary {
           background: transparent;
-          color: var(--text-white);
+          color: #e8f4f8;
           font-family: 'Rajdhani', sans-serif;
           font-weight: 600;
           font-size: 1rem;
           letter-spacing: 1.5px;
           text-transform: uppercase;
-          padding: 0.9rem 2.4rem;
+          padding: 0.9rem 2.1rem;
           border: 1.5px solid rgba(255, 255, 255, 0.25);
-          border-radius: 6px;
+          border-radius: 10px;
           cursor: pointer;
           transition: border-color 0.2s, color 0.2s, transform 0.15s;
         }
+
         .btn-secondary:hover {
-          border-color: var(--cyan);
-          color: var(--cyan);
+          border-color: #00d4e8;
+          color: #00d4e8;
           transform: translateY(-2px);
         }
 
-        /* Scroll chevron */
         .scroll-hint {
           position: absolute;
-          bottom: 2rem;
+          bottom: 1.5rem;
           left: 50%;
           transform: translateX(-50%);
           color: rgba(0, 212, 232, 0.5);
@@ -281,42 +197,56 @@ export default function HeroSection() {
           animation: bounce 2s ease-in-out infinite;
           cursor: pointer;
         }
+
         @keyframes bounce {
           0%, 100% { transform: translateX(-50%) translateY(0); }
           50% { transform: translateX(-50%) translateY(8px); }
         }
+
+        @media (max-width: 640px) {
+          .hero {
+            min-height: auto;
+            padding: 3rem 1rem 4.5rem;
+          }
+
+          .hero-name {
+            font-size: clamp(2.2rem, 12vw, 3rem);
+          }
+
+          .hero-roles {
+            font-size: 0.95rem;
+            letter-spacing: 0.8px;
+            line-height: 1.6;
+          }
+
+          .hero-roles .sep {
+            display: inline-block;
+            margin: 0 0.35rem;
+          }
+
+          .hero-bio {
+            font-size: 0.98rem;
+            line-height: 1.65;
+            margin-bottom: 2rem;
+          }
+
+          .hero-actions {
+            flex-direction: column;
+            width: min(100%, 320px);
+            margin: 0 auto;
+          }
+
+          .btn-primary,
+          .btn-secondary {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+          }
+        }
       `}</style>
 
-      {/* Navbar */}
-      <nav className="navbar">
-        <a className="logo" href="#">Vishnu<span>VS</span></a>
-        <ul className="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/experince">Experience</a></li>
-          <li><a href="/skills">Skills</a></li>
-          <li><a href="#">Accomplishments</a></li>
-          <li><a href="#">Gallery</a></li>
-          <li>
-            <a href="#" className="nav-gallery-btn">
-              <span>🖼</span> Full Gallery
-            </a>
-          </li>
-          <li><a href="#">Contact</a></li>
-          <li>
-            <a href="#" className="resume-btn">
-              ⬇ Resume
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      {/* Hero Section */}
       <section className="hero" id="home">
-        {/* Grid overlay */}
         <div className="hero-grid" />
 
-        {/* Floating particles */}
         <div className="particles">
           {[...Array(18)].map((_, i) => (
             <div
@@ -351,8 +281,8 @@ export default function HeroSection() {
           </p>
 
           <div className={`hero-actions fade-in delay-4 ${visible ? "visible" : ""}`}>
-            <button className="btn-primary">View My Work</button>
-            <button className="btn-secondary">Get In Touch</button>
+            <a className="btn-primary" href="#projects">View My Work</a>
+            <a className="btn-secondary" href="#contact">Get In Touch</a>
           </div>
         </div>
 

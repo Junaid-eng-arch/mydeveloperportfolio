@@ -1,12 +1,14 @@
 export default function Skills() {
   const skillCategories = [
     {
-      icon: "⚛",
+      icon: "◉",
       title: "Frontend Development",
       highlight: false,
       skills: [
-        "React.js", "JavaScript (ES6+)",
-        "HTML5 & CSS3", "Tailwind CSS",
+        "React.js",
+        "JavaScript (ES6+)",
+        "HTML5 & CSS3",
+        "Tailwind CSS",
         "Redux / Context API",
         "REST API Integration",
         "Responsive Design",
@@ -17,10 +19,14 @@ export default function Skills() {
       title: "Backend Development",
       highlight: true,
       skills: [
-        "Django", "Django REST Framework",
-        "Python", "PostgreSQL",
-        "MySQL", "Redis",
-        "Node.js", "Next.js",
+        "Django",
+        "Django REST Framework",
+        "Python",
+        "PostgreSQL",
+        "MySQL",
+        "Redis",
+        "Node.js",
+        "Next.js",
         "JWT Authentication",
       ],
     },
@@ -29,11 +35,13 @@ export default function Skills() {
       title: "DevOps & Deployment",
       highlight: false,
       skills: [
-        "Docker", "Nginx",
-        "AWS (EC2, S3)", "CI/CD Pipelines",
-        "deployment",
+        "Docker",
+        "Nginx",
+        "AWS (EC2, S3)",
+        "CI/CD Pipelines",
+        "Deployment",
         "Git & GitHub",
-        "Github Desktop",
+        "GitHub Desktop",
       ],
     },
     {
@@ -41,8 +49,10 @@ export default function Skills() {
       title: "Hotel & Travel Projects",
       highlight: false,
       skills: [
-        "Booking & Reservation Systems", "Room Management Dashboards",
-        "Tour Package Listings", "Payment Integration",
+        "Booking & Reservation Systems",
+        "Room Management Dashboards",
+        "Tour Package Listings",
+        "Payment Integration",
         "Multi-language Support",
         "Google Maps Integration",
       ],
@@ -52,9 +62,11 @@ export default function Skills() {
       title: "School & Education Projects",
       highlight: false,
       skills: [
-        "Student Management Systems", "Online Admission Portals",
-        "Timetable Schedulers", "Fee Management",
-        "Parent–Teacher Portals",
+        "Student Management Systems",
+        "Online Admission Portals",
+        "Timetable Schedulers",
+        "Fee Management",
+        "Parent-Teacher Portals",
         "Results & Grade Tracking",
       ],
     },
@@ -63,11 +75,14 @@ export default function Skills() {
       title: "Tools & Workflow",
       highlight: false,
       skills: [
-        "VS Code", "Postman",
-        "Figma (Handoff)", "GitHub Actions",
-        "React Bootstrap", "Material UI",
-        "Tailwind UI" ,
-        "Google Stich design",
+        "VS Code",
+        "Postman",
+        "Figma (Handoff)",
+        "GitHub Actions",
+        "React Bootstrap",
+        "Material UI",
+        "Tailwind UI",
+        "Google Stitch Design",
       ],
     },
   ];
@@ -79,15 +94,14 @@ export default function Skills() {
 
         .skills-section {
           background: #071428;
-          padding: 5rem 2rem;
+          padding: 5rem 1rem;
           font-family: 'Rajdhani', sans-serif;
           color: #e8f4f8;
         }
 
-        /* ── Header ── */
         .skills-header {
           text-align: center;
-          margin-bottom: 3.5rem;
+          margin-bottom: 3rem;
         }
 
         .skills-header h2 {
@@ -110,22 +124,21 @@ export default function Skills() {
           border-radius: 2px;
         }
 
-        /* ── Grid ── */
         .skills-grid {
           max-width: 1150px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(3, minmax(0, 1fr));
           gap: 1.5rem;
         }
 
-        /* ── Card ── */
         .skill-card {
           background: rgba(255, 255, 255, 0.03);
           border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 12px;
-          padding: 1.8rem;
+          border-radius: 14px;
+          padding: 1.7rem;
           transition: border-color 0.25s, transform 0.2s;
+          min-width: 0;
         }
 
         .skill-card:hover {
@@ -138,18 +151,18 @@ export default function Skills() {
           background: rgba(0, 212, 232, 0.04);
         }
 
-        /* ── Card Header ── */
         .skill-card-header {
           display: flex;
           align-items: center;
           gap: 1rem;
-          margin-bottom: 1.4rem;
+          margin-bottom: 1.25rem;
+          min-width: 0;
         }
 
         .skill-icon {
           width: 46px;
           height: 46px;
-          border-radius: 10px;
+          border-radius: 12px;
           background: rgba(0, 212, 232, 0.15);
           display: flex;
           align-items: center;
@@ -167,9 +180,9 @@ export default function Skills() {
           font-weight: 700;
           color: #e8f4f8;
           letter-spacing: 0.3px;
+          line-height: 1.25;
         }
 
-        /* ── Tags ── */
         .skill-tags {
           display: flex;
           flex-wrap: wrap;
@@ -184,7 +197,7 @@ export default function Skills() {
           font-size: 0.88rem;
           font-weight: 500;
           padding: 0.35rem 0.85rem;
-          border-radius: 20px;
+          border-radius: 999px;
           transition: background 0.2s, border-color 0.2s, color 0.2s;
         }
 
@@ -194,28 +207,41 @@ export default function Skills() {
           color: #00d4e8;
         }
 
-        /* ── Responsive ── */
         @media (max-width: 900px) {
           .skills-grid {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
           }
         }
 
         @media (max-width: 580px) {
+          .skills-section {
+            padding: 4rem 1rem;
+          }
+
           .skills-grid {
             grid-template-columns: 1fr;
+          }
+
+          .skill-card {
+            padding: 1.35rem;
+          }
+
+          .skill-card-title {
+            font-size: 1.05rem;
+          }
+
+          .skill-tag {
+            font-size: 0.84rem;
           }
         }
       `}</style>
 
       <section className="skills-section" id="skills">
-        {/* Header */}
         <div className="skills-header">
           <h2>Skills & <span>Expertise</span></h2>
           <div className="skills-header-underline" />
         </div>
 
-        {/* Grid */}
         <div className="skills-grid">
           {skillCategories.map((cat, i) => (
             <div key={i} className={`skill-card ${cat.highlight ? "highlight" : ""}`}>
@@ -224,8 +250,10 @@ export default function Skills() {
                 <div className="skill-card-title">{cat.title}</div>
               </div>
               <div className="skill-tags">
-                {cat.skills.map((skill, j) => (
-                  <span key={j} className="skill-tag">{skill}</span>
+                {cat.skills.map((skill) => (
+                  <span key={skill} className="skill-tag">
+                    {skill}
+                  </span>
                 ))}
               </div>
             </div>
