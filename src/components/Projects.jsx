@@ -315,7 +315,7 @@ function Projects() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Visit live ->
+                    Visit live {"->"}
                   </a>
                 )}
                 <div className="project-tags">
